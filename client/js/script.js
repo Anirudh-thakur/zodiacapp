@@ -86,7 +86,7 @@
   description: "Intense Scorpio is ruled by Pluto, planet of power and control. Pluto is a tiny powerhouse, and a bit of a mystery; in mythology Pluto was the god of the underworld. Many Scorpios are also drawn to “dark” things, and often wear the color black, or a shocking tone like red or hot pink. Like Pluto, Scorpio’s power often emanates from a hidden source, even when you don’t say a word. Mysterious Scorpio is the zodiac’s most misunderstood sign. You’re so powerful that people feel your presence, even before you’ve said a word! Sensitive Scorpio picks up vibes. You see every little detail, and you can read people like an open book. Once your friends get used to your high-intensity style, they know that you’re fiercely loyal. Anyone who betrays you had better watch out! Like a Scorpion, you’ll deliver a painful sting of revenge. Since your sign is naturally secretive, work on being more open with people. This will develop trust, and improve your relationships. Scorpio’s concentration powers are amazing, but be careful not to get obsessed. Curb any jealous or possessive feelings by pouring your energy into a creative project or passion."
 },
 {
-  name: "Sagittarius",
+  name: "Sagitarius",
   image: "/assets/sagittarius.jpg",
   month: "November 22 to December 21",
   description: "Cheerful Sagittarius is ruled by Jupiter, the largest planet in the solar system. Jupiter is the “happy” planet, full of energy and confidence. Sagittarians often reflect Jupiter’s larger-than-life persona. As the zodiac’s traveler, Sagittarius is the ultimate free spirit: optimistic, open-minded and ambitious. You’re happiest in wide-open spaces with plenty of adventure and excitement. You juggle a million projects, hobbies and friends. The more, the merrier! Sagittarius is forever pursuing a super-sized goal. Even when you fail, nothing can keep you down. You’ll chalk it up as a life lesson and inspire everyone with tales of your experience. As the sign of wisdom and truth, Sagittarius loves to “tell it like it is,” especially when it makes people laugh. However, your honesty doesn’t always come in the prettiest package. You’ve been known to bruise feelings with your bluntness. Cultivate patience, and be careful not to come off as a know-it-all. Although Sag loves the thrill of a new project or friendship, you don’t always finish what you start. Work on keeping your promises and commitments."
@@ -111,14 +111,15 @@
 }
 ]
 
-function Click()
+function Click(e)
 {
+  e.preventDefault();
+  console.log(e);
   var title = document.getElementById("display-name");
   var month = document.getElementById("display-month");
   var image = document.getElementById("display-image");
   var description = document.getElementById("display-desciption");
-  var userInput = document.getElementById("user-search").value;
-  var flag = 0;
+  var userInput = e.target[0].value;
   for(var i = 0; i<zodiacs.length;i++)
   {
     if(zodiacs[i].name.toLowerCase() === userInput.toLowerCase())
@@ -127,6 +128,7 @@ function Click()
       description.style.color = "black";
       title.innerHTML = zodiacs[i].name;
       month.innerHTML = zodiacs[i].month;
+      image.style.display = "block";
       image.src = zodiacs[i].image;
       description.innerHTML = zodiacs[i].description;
     }
