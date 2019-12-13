@@ -111,15 +111,16 @@
 }
 ]
 
-function Click(e)
+function Click()
 {
-  e.preventDefault();
-  console.log(e);
+  //e.preventDefault();
+ // console.log(e);
   var title = document.getElementById("display-name");
   var month = document.getElementById("display-month");
   var image = document.getElementById("display-image");
   var description = document.getElementById("display-desciption");
-  var userInput = e.target[0].value;
+  var userInput = document.getElementById("user-search").value;
+  var flag = 0;
   for(var i = 0; i<zodiacs.length;i++)
   {
     if(zodiacs[i].name.toLowerCase() === userInput.toLowerCase())
@@ -133,12 +134,47 @@ function Click(e)
       description.innerHTML = zodiacs[i].description;
     }
   }
+  // if(flag == 0)
+  // {
+  //   description.style.color = "red";
+  //   description.innerHTML = "Please enter a valid Zodiac Sign";
+  //   month.innerHTML = "";
+  //     image.src = "";
+  //     title.innerHTML = "";
+  // }
   if(flag == 0)
   {
-    description.style.color = "red";
-    description.innerHTML = "Please enter a valid Zodiac Sign";
-    month.innerHTML = "";
-      image.src = "";
-      title.innerHTML = "";
+    alert("Please enter a valid zodiac sign");
+  }
+  return false;
+}
+var zodiacNames = ["Aries",
+                   "Taurus", 
+                   "Gemini",
+                   "Cancer",
+                   "Leo",
+                   "Virgo",
+                   "Libra",
+                   "Scorpio",
+                   "Sagitarius",
+                   "Capricorn",
+                   "Aquarius",
+                   "Pisces"];
+
+function autoComplete(value)
+{
+  var Datalist = document.getElementById("datalist");
+  Datalist.innerHTML="";
+  for(var i=0;i<zodiacNames.length;i++)
+  {
+    if(zodiacNames[i].toLowerCase().indexOf(value.toLowerCase()))
+    {
+      var node = document.createElement("option");
+      var val = document.createTextNode(zodiacNames[i]);
+      node.appendChild(val);
+
+      Datalist.appendChild(node);
+
+    }
   }
 }
