@@ -1,4 +1,4 @@
-# zodiacapp
+# Zodiac App
 Zodiac Practice application for NodeJs and Bootstrap 
 
 # Technologies Used :-
