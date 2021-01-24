@@ -7,10 +7,10 @@ Express JS for server
 JavaScript as controller and Dynamic properties to website
 BootStrap to design front end.
 
-#Motivation :-
+# Motivation :-
 To test web development knowledge
 
-How to install :-
+# How to install :-
 install using npm install and you would get all the relevant dependencies from package.json file
 
 Heroku Live Link :- https://lit-gorge-51305.herokuapp.com/
